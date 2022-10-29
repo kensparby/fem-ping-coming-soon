@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+@import "./reset.css";
+@import "./normalize.css";
+
+$color-p-blue: hsl(223, 87%, 63%);
+$color-s-paleblue: hsl(223, 100%, 88%);
+$color-s-lightred: hsl(354, 100%, 66%);
+$color-n-gray: hsl(0, 0%, 59%);
+$color-n-verydarkblue: hsl(209, 33%, 12%);
+
+$text-body: 18px;
+
+img {
+  max-width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Libre Franklin", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+main {
+  margin: 4rem 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+
+  .title {
+    color: $color-n-gray;
+    font-size: 2rem;
+
+    span {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .copy {
+    font-size: $text-body;
+  }
+
+  img.logo {
+    margin: 3em;
+  }
+}
+
+#subscribeForm {
+  margin: 3em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // width: clamp(200px, 100%, 400px);
+  gap: 1em;
+
+  #emailInput {
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 999px;
+    border: 2px solid $color-s-paleblue;
+    padding-left: 3em;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $color-n-gray;
+    }
+
+    &:invalid {
+      border-color: $color-s-lightred;
+    }
+  }
+
+  #submitButton {
+    width: 100%;
+    background: $color-p-blue;
+    color: white;
+    height: 3.5rem;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:hover {
+      background: #7195f5;
+    }
+  }
+
+  .invalidEmail {
+    color: $color-s-lightred;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    display: none;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.illustration {
+  margin: 3em;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin: 3em;
+  color: $color-n-gray;
+  font-size: 0.8rem;
+  gap: 3em;
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+
+    .icon {
+      height: 1.5em;
+      aspect-ratio: 1/1;
+      fill: $color-p-blue;
+      border-radius: 50%;
+      border: 1px solid scale-color($color-s-paleblue, $lightness: 50%);
+      padding: 0.7em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-p-blue;
+        fill: white;
+      }
+    }
+  }
+}
+
+//
+// MEDIA QUERIES
+//
+
+@media screen and (min-width: 520px) {
+  $text-body: 20px;
+
+  main {
+    max-width: 650px;
+
+    .title {
+      font-size: 2.8em;
+    }
+  }
+  #subscribeForm {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: stretch;
+
+    #emailInput {
+      flex: 1 0 300px;
+      padding-left: 1.6em;
+    }
+    #submitButton {
+      width: auto;
+      flex: 0 0 200px;
+    }
+    .invalidEmail {
+      order: 3;
+      flex: 1;
+      white-space: nowrap;
+      padding-left: 2em;
+    }
+  }
+}
