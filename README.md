@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![./screenshot.png](./screenshot.jpg)
+![Screenshot of solution](./screenshot.png?raw=true)
 
 ### Links
 
